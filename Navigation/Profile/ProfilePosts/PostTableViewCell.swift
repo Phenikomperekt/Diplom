@@ -77,6 +77,7 @@ final class PostTableViewCell: UITableViewCell {
         let font: UIFont = UIFont.systemFont(ofSize: 16)
         viewsLabel.font = font
         viewsLabel.textColor = .black
+        viewsLabel.text = "Views: " + String(viewsCount)
         viewsLabel.textAlignment = .right
         return viewsLabel
     }()
@@ -100,7 +101,7 @@ final class PostTableViewCell: UITableViewCell {
 
         return likesButton
     }()
-
+  
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -271,11 +272,11 @@ final class PostTableViewCell: UITableViewCell {
 
         @objc func labelTapped(_ sender: UITapGestureRecognizer) {
 
-
+            viewsCount += 1
             let vc = OnePostViewController(authorText: authorText, postImageViewString: postImageViewString, descriptionText: descriptionText, likesCount: likesCount, viewsCount: viewsCount)
 
             let rootController = topMostController()
-            viewsCount += 1
+
             rootController.present(vc, animated: true, completion: nil)
 
             }
