@@ -115,13 +115,11 @@ class OnePostViewController: UIViewController {
     }()
 
     private func initVariables() {
-        let postTable = PostTableViewCell()
-
         authorLabel.text = self.authorText
         postImageView.image = UIImage(named: self.postImageViewString)
         descriptionLabel.text = self.descriptionText
-        likesButton.setTitle("  Likes: " + String(postTable.likesCount), for: .normal)
-        viewsLabel.text = String(postTable.viewsCount)
+        likesButton.setTitle("  Likes: " + String(self.likesCount), for: .normal)
+        viewsLabel.text = "Views: " + String(self.viewsCount)
     }
 
     override func viewDidLoad() {
@@ -129,14 +127,11 @@ class OnePostViewController: UIViewController {
         self.view.backgroundColor = .white
         initVariables()
         setupView()
-
-
     }
     
     private func setupView() {
         self.view.addSubview(self.scrollView)
         self.scrollView.addSubview(backView)
-//        self.backView.addSubview(self.stackView)
         self.backView.addSubview(authorLabel)
         self.backView.addSubview(postImageView)
         self.backView.addSubview(descriptionLabel)
@@ -146,7 +141,6 @@ class OnePostViewController: UIViewController {
 
         let backViewConstraints = self.backViewConstraints()
         let scrollViewConstraints = self.scrollViewConstraints()
-//        let stackViewConstraints = self.stackViewConstrints()
         let authorLabelConstraints = self.authorLabelConstraints()
         let imageViewConstraints = self.imageViewConstraints()
         let descriptionLabelConstraints = self.descriptionLabelConstraints()
@@ -155,7 +149,6 @@ class OnePostViewController: UIViewController {
         NSLayoutConstraint.activate(
                                       scrollViewConstraints
                                     + backViewConstraints
-//                                    + stackViewConstraints
                                     + authorLabelConstraints
                                     + imageViewConstraints
                                     + descriptionLabelConstraints
@@ -219,14 +212,12 @@ class OnePostViewController: UIViewController {
         return [topConstraint, leadingConstraint, trailingConstraint, bottomConstraints]
     }
 
-
     private func viewsLabelConstraints() -> [NSLayoutConstraint] {
         let topConstraint = viewsLabel.topAnchor.constraint(equalTo: self.bottomStackView.bottomAnchor)
         let leadingConstrint = viewsLabel.leadingAnchor.constraint(equalTo: self.bottomStackView.centerXAnchor)
         let trailingConstraint = viewsLabel.rightAnchor.constraint(equalTo: self.bottomStackView.rightAnchor)
         return [topConstraint, leadingConstrint, trailingConstraint]
     }
- 
 
 }
 

@@ -114,12 +114,6 @@ final class PostTableViewCell: UITableViewCell {
 
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-
-      }
-
     override func prepareForReuse() {
         super.prepareForReuse()
         self.authorLabel.text = nil
@@ -242,6 +236,7 @@ final class PostTableViewCell: UITableViewCell {
 //MARK: - Actions
 
     @IBAction func likesButtonTapped(_ sender: UIButton){
+
         self.likesCount += 1
         self.likesButton.setTitle("  Likes: " + String(self.likesCount), for: .normal)
 
@@ -270,17 +265,17 @@ final class PostTableViewCell: UITableViewCell {
             self.likesCount = viewModel.likes
 
             self.viewsLabel.text = "Views: " + String(viewModel.views)
-            self.likesCount = viewModel.views
+            self.viewsCount = viewModel.views
 
         }
 
         @objc func labelTapped(_ sender: UITapGestureRecognizer) {
-            likesCount += 1
+
 
             let vc = OnePostViewController(authorText: authorText, postImageViewString: postImageViewString, descriptionText: descriptionText, likesCount: likesCount, viewsCount: viewsCount)
 
             let rootController = topMostController()
-
+            viewsCount += 1
             rootController.present(vc, animated: true, completion: nil)
 
             }
