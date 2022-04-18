@@ -1,0 +1,32 @@
+{
+    "articles": [{
+            "author": "BMW R18 Transcontinental",
+            "description": "The R 18 Transcontinental offers you exclusive and luxurious traveling. As a member of the R 18 family it represents BMW Motorrad’s tradition and is deeply rooted in the here and now: its unmistakable front end with the tall windscreen and the mighty Big Boxer promise a comfortable, powerful ride for miles. The automatic load compensation feature accurately adapts the chassis to the load applicable to the motorcycle. And thanks to it being prepared for customizing you can define your R 18 Transcontinental according to what you will discover on every trip: yourself. Simply put: classic SoulFuel.",
+            "image": "Transcontinental",
+            "likes": 1024,
+            "views": 48657
+
+        },
+        {
+            "author": "Honda GL1800 Goldwing Tour DCT",
+            "description": "For its 6th generation in 2018 Honda produced a completely redesigned Gold Wing. The new model has a new four-valve engine and is available in two versions: the standard Gold Wing (replacing F6B bagger) and the top trunk Gold Wing Tour. Sportier in appearance, technologically more advanced, and more compact, the 2018 Gold Wing is 41 kg (90 lb) lighter than before. Its new robotically welded frame has a double wishbone front suspension, resembling the Duolever from BMW.[107] New features include throttle by wire, four ride modes, traction control, LED lighting, hill start assist, Apple CarPlay, and (on the Tour model) electronically adjustable suspension. Options include automatic dual clutch transmission with a forward and reverse walking mode. In mid-June 2020, Honda introduced Android Auto. For 2021, Honda increased the size of the top trunk from 50 litres to 61 litres. The passenger's back seat rest features a more relaxed angle with thicker foam and taller profile. Speakers were changed to 45 watt with automatic volume adjustment and standard XM radio. Rear turn signals were changed to all red.",
+            "image": "Goldwing",
+            "likes": 1112,
+            "views": 51893
+        },
+        {
+            "author": "Harley Davidson FLHTKSE CVO",
+            "description": "Harley-Davidson CVO limited FLHTKSE is a limited edition of an exclusive premium touring motorcycle from the legendary American brand. Superbly constructed, maximally comfortable and with excellent dynamics - the motorcycle deserves the title of the crown of engineering. The heart of the bike is the high-performance Twin-Cam 110 power unit. Its displacement is 1801 cubic centimeters. The engine has excellent low to mid-range traction, making the vehicle so dynamic that it will simply take your breath away. Despite the stylish retro design, the motorcycle received a premium multimedia system and the most modern electronic equipment.",
+            "image": "Harley",
+            "likes": 857,
+            "views": 65333
+        },
+        {
+            "author": "Indian Pursuit Limited",
+            "description": "Indian Motorcycle defied the bagger status quo when it released the liquid-cooled Challenger in 2020, which won Rider‘s Motorcycle of the Year award. The firm wasted little time proving the PowerPlus V-Twin’s performance potential with a victory at the inaugural King of the Baggers Invitational. In 2022, Indian is back for a second helping, but this time, the company takes the Challenger’s winning formula and adds a dash of grand-touring pedigree with its new Indian Pursuit models for 2022. Powered by the same 108 cubic-inch, liquid-cooled PowerPlus V-Twin found in the Challenger, the new Pursuit Limited and Pursuit Dark Horse pump out 122 horsepower and 128 lb-ft of torque (at the crank). While the Pursuit and Challenger share the same power figures, Indian engineers have refined the power delivery for improved low-speed drivability.",
+            "image": "Indian",
+            "likes": 1010,
+            "views": 45510
+        },
+    ]
+}
