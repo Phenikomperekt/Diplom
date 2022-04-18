@@ -273,6 +273,7 @@ final class PostTableViewCell: UITableViewCell {
         @objc func labelTapped(_ sender: UITapGestureRecognizer) {
 
             viewsCount += 1
+            viewsLabel.text = "Views: " + String(viewsCount)
             let vc = OnePostViewController(authorText: authorText, postImageViewString: postImageViewString, descriptionText: descriptionText, likesCount: likesCount, viewsCount: viewsCount)
 
             let rootController = topMostController()
