@@ -63,7 +63,7 @@ class SplashViewController: UIViewController {
         let constraintsOfAll = self.constraintsOfAll()
         NSLayoutConstraint.activate(constraintsOfAll)
 
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.splashTimeOut), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.splashTimeOut), userInfo: nil, repeats: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
