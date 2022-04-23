@@ -222,6 +222,20 @@ class LogInViewController: UIViewController {
             loginText.layer.borderColor = UIColor.systemRed.cgColor
             loginText.layer.borderWidth = 2
         }
+
+        guard let login = loginText.text else {
+            validate = false
+            loginText.layer.borderColor = UIColor.systemRed.cgColor
+            loginText.layer.borderWidth = 2
+            return validate
+        }
+
+        let emailValidator = EmailValidator(input: login)
+        if emailValidator.isValid {
+            validate = true
+            return validate
+        }
+
         guard let password = passwordText.text else {
             validate = false
             passwordText.layer.borderColor = UIColor.systemRed.cgColor
@@ -258,7 +272,6 @@ class LogInViewController: UIViewController {
         if let kbdSize =
             (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.logInScrollView.setContentOffset(CGPoint(x:0, y: kbdSize.height/2), animated: true)
-//            self.logInScrollView.contentInset.bottom = kbdSize.height + 20
             self.logInScrollView.verticalScrollIndicatorInsets =
                                         UIEdgeInsets(top: 0, left: 0, bottom: kbdSize.height, right: 0)
 
@@ -281,11 +294,9 @@ class LogInViewController: UIViewController {
     }
 
     @objc func logInButtonTouch() {
-//        checkSpaceInTextField()
 
-//        if !(loginText.text == "" || passwordText.text == "")
         if checkSpaceInTextField() {
-            if loginText.text == "root" && passwordText.text == "admin" {
+            if loginText.text == "root@magic.net" && passwordText.text == "admin" {
                 let profileController = ProfileViewController()
                 navigationController?.pushViewController(profileController, animated: true)
 
