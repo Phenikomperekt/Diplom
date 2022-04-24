@@ -58,6 +58,10 @@ class ProfileViewController: UIViewController {
                                     ])
     }
 
+    private func deleteCellBySwipe() {
+        print ("Swipe Left")
+    }
+
 //MARK: - Date receeved.
     private func fetchArticles(completion: @escaping([News.Article]) -> Void) {
         if let path = Bundle.main.path(forResource: "news", ofType: "json") {
@@ -134,6 +138,32 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             vc.post.title = "Photo Gallery"
         self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+////            object.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .none {
+//
+//        }
+//    }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        let title = NSLocalizedString("Delete", comment: "Delete")
+
+        let action = UIContextualAction(style: .destructive, title: title, handler: {
+             (action, view, completionHadler) in
+            self.deleteCellBySwipe()
+            completionHadler(true)
+        })
+
+        action.image = UIImage(systemName: "delete.backward.fill")
+        action.backgroundColor = .systemRed
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        
+        return configuration
     }
 
 
