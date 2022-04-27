@@ -17,8 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
 
         // MARK: - main Start point
-
-        self.window?.rootViewController = UINavigationController(rootViewController: SplashViewController())
+        self.window?.rootViewController = TabBarController()
+//        self.window?.rootViewController = UINavigationController(rootViewController: SplashViewController())
 
         // MARK: - debug Start points:
 

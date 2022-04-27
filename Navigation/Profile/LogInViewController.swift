@@ -63,7 +63,7 @@ class LogInViewController: UIViewController {
         let leftScrollView = logInScrollView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
         let rightScrollView = logInScrollView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         let widthScrollView = logInScrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
-        let heightScrollView = logInScrollView.heightAnchor.constraint(equalTo: self.view.heightAnchor)
+//        let heightScrollView = logInScrollView.heightAnchor.constraint(equalTo: self.view.heightAnchor)
 
         let topLogInView = logInView.topAnchor.constraint(equalTo: self.logInScrollView.topAnchor)
         let bottomLogInView = logInView.bottomAnchor.constraint(equalTo: self.logInScrollView.bottomAnchor)
@@ -74,7 +74,7 @@ class LogInViewController: UIViewController {
         let heightLogInView = logInView.heightAnchor.constraint(equalTo: self.logInScrollView.heightAnchor)
 
         NSLayoutConstraint.activate([
-                                     topScrollView, bottomScrollView, leftScrollView, rightScrollView, widthScrollView, heightScrollView,
+                                     topScrollView, bottomScrollView, leftScrollView, rightScrollView, widthScrollView, 
                                      topLogInView, bottomLogInView, rightLogInView, leftLogInView, widthLogInView, heightLogInView
                                     ])
     }
