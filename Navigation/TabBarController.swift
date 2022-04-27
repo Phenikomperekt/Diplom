@@ -14,7 +14,6 @@ class TabBarController: UITabBarController {
     private enum TabBarItem {
         case feed
         case profile
-        case animation
 
         var title: String {
             switch self {
@@ -22,8 +21,7 @@ class TabBarController: UITabBarController {
                 return "Feed"
             case .profile:
                 return "Profile"
-            case .animation:
-                return "Animation"
+
 
             }
         }
@@ -34,8 +32,7 @@ class TabBarController: UITabBarController {
                 return UIImage(systemName: "newspaper")
             case .profile:
                 return UIImage(systemName: "person.crop.square")
-            case .animation:
-                return UIImage(systemName: "sparkles")
+
             }
         }
     }
@@ -50,15 +47,14 @@ class TabBarController: UITabBarController {
     }
 
     func setupTabBar() {
-        let items: [TabBarItem] = [.feed, .profile, .animation]
+        let items: [TabBarItem] = [.feed, .profile]
         self.viewControllers = items.map({ tabBarItem in
             switch tabBarItem {
             case .feed:
                 return UINavigationController(rootViewController: FeedViewController())
             case .profile:
                 return UINavigationController(rootViewController: LogInViewController())
-            case .animation:
-                return UINavigationController(rootViewController: AnimationViewController())
+
             }
         })
 

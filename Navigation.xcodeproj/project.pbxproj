@@ -17,7 +17,6 @@
 		A2AA951F2803129C0003F08E /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AA951E2803129C0003F08E /* PhotosViewController.swift */; };
 		A2AA9521280312A30003F08E /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AA9520280312A30003F08E /* PhotosCollectionViewCell.swift */; };
 		A2AA95252803137E0003F08E /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AA95242803137E0003F08E /* ProfileTableView.swift */; };
-		A2B765C328067E4F0062C57E /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B765C228067E4F0062C57E /* AnimationViewController.swift */; };
 		A2B765C828093FA60062C57E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B765C728093FA60062C57E /* SplashViewController.swift */; };
 		A2E0CF3727CFA14800543B3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E0CF3627CFA14800543B3F /* AppDelegate.swift */; };
 		A2E0CF3927CFA14800543B3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E0CF3827CFA14800543B3F /* SceneDelegate.swift */; };
@@ -30,7 +29,6 @@
 		A2E0CF5327D10E8600543B3F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E0CF5227D10E8600543B3F /* Post.swift */; };
 		A2E0CF5527D63DF900543B3F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E0CF5427D63DF900543B3F /* InfoViewController.swift */; };
 		A2E0CF5727D649DE00543B3F /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E0CF5627D649DE00543B3F /* AlertController.swift */; };
-		A2EA008127E49C36006A1193 /* FeedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA008027E49C36006A1193 /* FeedStackView.swift */; };
 		A2EA008327EB22B6006A1193 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA008227EB22B6006A1193 /* LogInViewController.swift */; };
 		A2EAB726280AD97800FC435C /* OnePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EAB725280AD97800FC435C /* OnePostViewController.swift */; };
 /* End PBXBuildFile section */
@@ -46,7 +44,6 @@
 		A2AA951E2803129C0003F08E /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		A2AA9520280312A30003F08E /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2AA95242803137E0003F08E /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
-		A2B765C228067E4F0062C57E /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		A2B765C728093FA60062C57E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A2E0CF3327CFA14800543B3F /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E0CF3627CFA14800543B3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +58,6 @@
 		A2E0CF5227D10E8600543B3F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A2E0CF5427D63DF900543B3F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A2E0CF5627D649DE00543B3F /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
-		A2EA008027E49C36006A1193 /* FeedStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStackView.swift; sourceTree = "<group>"; };
 		A2EA008227EB22B6006A1193 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A2EAB725280AD97800FC435C /* OnePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,9 +130,7 @@
 			children = (
 				A2B765C92809418C0062C57E /* Application */,
 				A2E0CF4E27D0D93C00543B3F /* TabBarController.swift */,
-				A2B765C228067E4F0062C57E /* AnimationViewController.swift */,
 				A2E0CF4A27CFA9D700543B3F /* FeedViewController.swift */,
-				A2EA008027E49C36006A1193 /* FeedStackView.swift */,
 				A2E0CF5027D0F12000543B3F /* PostViewController.swift */,
 				A2E0CF5427D63DF900543B3F /* InfoViewController.swift */,
 				A2E0CF5627D649DE00543B3F /* AlertController.swift */,
@@ -229,7 +223,6 @@
 				A2E0CF5727D649DE00543B3F /* AlertController.swift in Sources */,
 				A2653B1327F82191007B5F57 /* News.swift in Sources */,
 				A2AA951D280312920003F08E /* PhotosTableViewCell.swift in Sources */,
-				A2B765C328067E4F0062C57E /* AnimationViewController.swift in Sources */,
 				A2E0CF3727CFA14800543B3F /* AppDelegate.swift in Sources */,
 				A2E0CF4B27CFA9D700543B3F /* FeedViewController.swift in Sources */,
 				A244C9E9281427C800A0B348 /* EmailValidator.swift in Sources */,
@@ -241,7 +234,6 @@
 				A2AA9521280312A30003F08E /* PhotosCollectionViewCell.swift in Sources */,
 				A2AA95252803137E0003F08E /* ProfileTableView.swift in Sources */,
 				A2E0CF5327D10E8600543B3F /* Post.swift in Sources */,
-				A2EA008127E49C36006A1193 /* FeedStackView.swift in Sources */,
 				A2EA008327EB22B6006A1193 /* LogInViewController.swift in Sources */,
 				A2E0CF5527D63DF900543B3F /* InfoViewController.swift in Sources */,
 				A2E0CF3927CFA14800543B3F /* SceneDelegate.swift in Sources */,

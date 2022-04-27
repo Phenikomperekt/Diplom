@@ -37,6 +37,8 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
         self.setupView()
 
         self.fetchArticles { [weak self] articles in
@@ -44,6 +46,19 @@ class ProfileViewController: UIViewController {
             self?.tableView.reloadData()
         }
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
+
+    }
+
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.tabBarController?.tabBar.isHidden = true
+//    }
 
     private func setupView() {
         

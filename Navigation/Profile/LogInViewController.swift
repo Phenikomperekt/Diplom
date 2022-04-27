@@ -25,6 +25,8 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.isHidden = true
         self.view.addSubview(logInScrollView)
         self.logInScrollView.addSubview(logInView)
         setupConstraints()
@@ -38,6 +40,7 @@ class LogInViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         self.tabBarController?.tabBar.isHidden = true
 
+
         let noteCenter = NotificationCenter.default
         noteCenter.addObserver(self, selector: #selector(kbWillShow),
                                name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -48,6 +51,7 @@ class LogInViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
 
         super.viewDidDisappear(animated)
+//        self.tabBarController?.tabBar.isHidden = false
         let noteCenter = NotificationCenter.default
         noteCenter.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         noteCenter.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -63,8 +67,8 @@ class LogInViewController: UIViewController {
 
         let topLogInView = logInView.topAnchor.constraint(equalTo: self.logInScrollView.topAnchor)
         let bottomLogInView = logInView.bottomAnchor.constraint(equalTo: self.logInScrollView.bottomAnchor)
-        let leftLogInView = logInView.leftAnchor.constraint(equalTo: self.logInScrollView.layoutMarginsGuide.leftAnchor)
-        let rightLogInView = logInView.rightAnchor.constraint(equalTo: self.logInScrollView.layoutMarginsGuide.rightAnchor)
+        let leftLogInView = logInView.leftAnchor.constraint(equalTo: self.logInScrollView.leftAnchor)
+        let rightLogInView = logInView.rightAnchor.constraint(equalTo: self.logInScrollView.rightAnchor)
 
         let widthLogInView = logInView.widthAnchor.constraint(equalTo: self.logInScrollView.widthAnchor)
         let heightLogInView = logInView.heightAnchor.constraint(equalTo: self.logInScrollView.heightAnchor)

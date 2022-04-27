@@ -52,13 +52,18 @@ class ProfileHeaderView: UIView {
         let warningLabelLeftAnchor = warningLabel.leadingAnchor.constraint(equalTo: statusLabel.leadingAnchor)
         let warningLabelRightAnchor = warningLabel.rightAnchor.constraint(equalTo: statusLabel.rightAnchor)
 //        let warningLabelBottomAnchor = warningLabel.bottomAnchor.constraint(equalTo: showButton.topAnchor, constant: -34)
-
+        self.addSubview(statusTextField)
+        let statusTextFieldTopAnchor = statusTextField.bottomAnchor.constraint(equalTo: statusLabel.bottomAnchor)
+        let statusTextFieldLeftAnchor = statusTextField.leftAnchor.constraint(equalTo: statusLabel.leftAnchor)
+        let statusTextFieldRightAnchor = statusTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+        let statusTextFieldHeightAnchor = statusTextField.heightAnchor.constraint(equalToConstant: 40)
 
         NSLayoutConstraint.activate([avatarTopAncor, avatarLeadingAnchor, avatarWidthAnchor, avatarHeightAnchor,
                                     showButtonTopAncor, showButtonLeadingAnchor, showButtonTrailingAnchor, showButtonHeightAnchor,
                                     nameLabelWidthAnchor, nameLabelLeftAnchor, nameLabelTopAnchor,
                                      statusLabelWidthAnchor, statusLabelLeftAnchor, statusLabelBottomAnchor,
-                                     warningLabelTopAnchor, warningLabelLeftAnchor, warningLabelRightAnchor
+                                     warningLabelTopAnchor, warningLabelLeftAnchor, warningLabelRightAnchor,
+                                     statusTextFieldTopAnchor, statusTextFieldLeftAnchor, statusTextFieldRightAnchor, statusTextFieldHeightAnchor
                                     ])
     }
 
@@ -125,7 +130,8 @@ class ProfileHeaderView: UIView {
         statusTextField.layer.cornerRadius = 12.0
         statusTextField.layer.borderColor = UIColor.black.cgColor
         statusTextField.layer.borderWidth = 1.0
-
+        statusTextField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
+        statusTextField.isHidden = true
         return statusTextField
     }()
 
@@ -141,13 +147,7 @@ class ProfileHeaderView: UIView {
     }()
 
     private func theStatusTextField() {
-        self.addSubview(statusTextField)
-        self.statusTextField.bottomAnchor.constraint(equalTo: statusLabel.bottomAnchor).isActive = true
-        self.statusTextField.leftAnchor.constraint(equalTo: statusLabel.leftAnchor).isActive = true
-        self.statusTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-        self.statusTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        self.statusTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.statusTextField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0) // Искажение для отступа поля ввода
+        self.statusTextField.isHidden = false
         self.statusTextField.becomeFirstResponder() // Фокус на поле ввода.
     }
 
@@ -181,9 +181,9 @@ class ProfileHeaderView: UIView {
         } else if statusTag {
             statusTextChanged(statusTemp: statusTextField.text)
             if !errorSpace {
-                statusTextField.layer.borderColor = UIColor.black.cgColor
-                statusTextField.layer.borderWidth = 1.0
-                self.statusTextField.removeFromSuperview()
+                self.statusTextField.layer.borderColor = UIColor.black.cgColor
+                self.statusTextField.layer.borderWidth = 1.0
+                self.statusTextField.isHidden = true
                 showButton.setTitle("New status", for: .normal)
                 warningLabel.isHidden = true
 

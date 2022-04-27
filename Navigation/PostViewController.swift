@@ -12,11 +12,20 @@ class PostViewController: UIViewController {
 
 
     override func viewDidLoad() {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
         super.viewDidLoad()
         self.view.backgroundColor = .systemGray4
         self.navigationItem.title = PostViewController.post.title
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Info", style: .plain, target: self, action: #selector(infoButton))
 
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
 
     }
 
