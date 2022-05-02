@@ -93,16 +93,14 @@ class OnePostViewController: UIViewController {
         return bottomStackView
     }()
 
-    private lazy var likesButton: UIButton = {
-        let likesButton = UIButton()
-        likesButton.setTitle("  Likes:", for: .normal)
-        likesButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
-        likesButton.setTitleColor(.systemOrange, for: .normal)
-        likesButton.setTitleShadowColor(.systemRed, for: .normal)
-        likesButton.backgroundColor = .white
-        likesButton.setTitleShadowColor(.black, for: .normal)
+    private lazy var likesView: UILabel = {
+        let likesView = UILabel()
+        likesView.text = "  Likes:"
+        likesView.textAlignment = .left
+        likesView.backgroundColor = .white
+        likesView.textColor = .black
 
-        return likesButton
+        return likesView
     }()
 
     private lazy var viewsLabel: UILabel = {
@@ -118,7 +116,7 @@ class OnePostViewController: UIViewController {
         authorLabel.text = self.authorText
         postImageView.image = UIImage(named: self.postImageViewString)
         descriptionLabel.text = self.descriptionText
-        likesButton.setTitle("  Likes: " + String(self.likesCount), for: .normal)
+        likesView.text = "  Likes: " + String(self.likesCount)
         viewsLabel.text = "Views: " + String(self.viewsCount)
     }
 
@@ -136,7 +134,7 @@ class OnePostViewController: UIViewController {
         self.backView.addSubview(postImageView)
         self.backView.addSubview(descriptionLabel)
         self.backView.addSubview(bottomStackView)
-        self.bottomStackView.addArrangedSubview(likesButton)
+        self.bottomStackView.addArrangedSubview(likesView)
         self.bottomStackView.addArrangedSubview(viewsLabel)
 
         let backViewConstraints = self.backViewConstraints()

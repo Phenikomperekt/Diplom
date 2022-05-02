@@ -10,9 +10,14 @@ import UIKit
 class FeedViewController: UIViewController {
 
 
-        private lazy var feedStackView: FeedStackView = {
-            let feedStackView = FeedStackView()
-            feedStackView.attributesStackView()
+        private lazy var feedStackView: UIStackView = {
+            let feedStackView = UIStackView()
+//            feedStackView.attributesStackView()
+            feedStackView.axis = .vertical
+            feedStackView.spacing = 10.0
+            feedStackView.alignment = .fill
+            feedStackView.distribution = .fillEqually
+            feedStackView.translatesAutoresizingMaskIntoConstraints = false
             feedStackView.insertArrangedSubview(postButton, at: 0)
             feedStackView.insertArrangedSubview(postButton2, at: 1)
 
@@ -21,6 +26,9 @@ class FeedViewController: UIViewController {
 
 
         override func viewDidLoad() {
+            navigationController?.setNavigationBarHidden(true, animated: false)
+            self.tabBarController?.tabBar.isHidden = false
+            
             super.viewDidLoad()
             self.view.backgroundColor = .systemGray5
             self.navigationItem.title = "Post list"
@@ -34,6 +42,20 @@ class FeedViewController: UIViewController {
             NSLayoutConstraint.activate([bottonStackView, leadingStackView, trailingStackView, heightStackView])
 
         }
+
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
+
+    }
+
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.tabBarController?.tabBar.isHidden = true
+//    }
 
         private lazy var postButton: UIButton = {
           let postButton = UIButton()
@@ -69,6 +91,7 @@ class FeedViewController: UIViewController {
             let vc = PostViewController()
 
             PostViewController.post.title = "Title of Post"
+
 
             self.navigationController?.pushViewController(vc, animated: true)
 

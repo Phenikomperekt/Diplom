@@ -15,7 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        self.window?.rootViewController = UINavigationController(rootViewController: SplashViewController())
+
+        // MARK: - main Start point
+        self.window?.rootViewController = TabBarController()
+//        self.window?.rootViewController = UINavigationController(rootViewController: SplashViewController())
+
+        // MARK: - debug Start points:
+
+//        self.window?.rootViewController = UINavigationController(rootViewController: ProfileViewController())
 
 //        self.window?.rootViewController = UINavigationController(rootViewController: PhotosViewController())
 

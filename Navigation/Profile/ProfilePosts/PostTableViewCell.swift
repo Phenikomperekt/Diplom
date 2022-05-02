@@ -77,6 +77,7 @@ final class PostTableViewCell: UITableViewCell {
         let font: UIFont = UIFont.systemFont(ofSize: 16)
         viewsLabel.font = font
         viewsLabel.textColor = .black
+        viewsLabel.text = "Views: " + String(viewsCount)
         viewsLabel.textAlignment = .right
         return viewsLabel
     }()
@@ -89,23 +90,20 @@ final class PostTableViewCell: UITableViewCell {
         return bottomStackView
     }()
 
-    private lazy var likesButton: UIButton = {
-        let likesButton = UIButton()
-        likesButton.setTitle("  Likes:", for: .normal)
-        likesButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
-        likesButton.setTitleColor(.systemOrange, for: .normal)
-        likesButton.setTitleShadowColor(.systemRed, for: .normal)
-        likesButton.backgroundColor = .white
-        likesButton.setTitleShadowColor(.black, for: .normal)
+    private lazy var likesView: UILabel = {
+        let likesView = UILabel()
+        likesView.text = "  Likes:"
+        likesView.textAlignment = .left
+        likesView.backgroundColor = .white
+        likesView.textColor = .black
 
-        return likesButton
+        return likesView
     }()
 
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupView()
-        self.likesButton.addTarget(self, action: #selector(likesButtonTapped(_:)), for: .touchUpInside)
         self.setupImageTap()
     }
 
@@ -119,7 +117,7 @@ final class PostTableViewCell: UITableViewCell {
         self.authorLabel.text = nil
         self.postImageView.image = nil
         self.descriptionLabel.text = nil
-        self.likesButton.titleLabel?.text = nil
+        self.likesView.text = nil
         self.viewsLabel.text = nil
     }
 
@@ -130,7 +128,7 @@ final class PostTableViewCell: UITableViewCell {
         self.stackView.addArrangedSubview(postImageView)
         self.stackView.addArrangedSubview(descriptionLabel)
         self.stackView.addArrangedSubview(bottomStackView)
-        self.bottomStackView.addArrangedSubview(likesButton)
+        self.bottomStackView.addArrangedSubview(likesView)
         self.bottomStackView.addArrangedSubview(viewsLabel)
 
         let backViewConstraints = self.backViewConstraints()
@@ -221,9 +219,16 @@ final class PostTableViewCell: UITableViewCell {
 
     private func setupImageTap() {
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+        let likesTap = UITapGestureRecognizer(target: self, action: #selector(self.likesTapped(_:)))
               self.postImageView.isUserInteractionEnabled = true
+              self.likesView.isUserInteractionEnabled = true
               self.postImageView.addGestureRecognizer(labelTap)
+//        self.likesView.isUserInteractionEnabled = true
+              self.likesView.addGestureRecognizer(likesTap)
+
+
     }
+
 
     func topMostController() -> UIViewController {
         var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
@@ -235,12 +240,6 @@ final class PostTableViewCell: UITableViewCell {
 
 //MARK: - Actions
 
-    @IBAction func likesButtonTapped(_ sender: UIButton){
-
-        self.likesCount += 1
-        self.likesButton.setTitle("  Likes: " + String(self.likesCount), for: .normal)
-
-      }
 }
 
 //MARK: - Assigment
@@ -261,7 +260,7 @@ final class PostTableViewCell: UITableViewCell {
             self.descriptionLabel.text = viewModel.description
             self.descriptionText = viewModel.description
 
-            self.likesButton.setTitle("  Likes: " + String(viewModel.likes), for: .normal)
+            self.likesView.text = "  Likes: " + String(viewModel.likes)
             self.likesCount = viewModel.likes
 
             self.viewsLabel.text = "Views: " + String(viewModel.views)
@@ -271,14 +270,25 @@ final class PostTableViewCell: UITableViewCell {
 
         @objc func labelTapped(_ sender: UITapGestureRecognizer) {
 
-
+            viewsCount += 1
+            viewsLabel.text = "Views: " + String(viewsCount)
             let vc = OnePostViewController(authorText: authorText, postImageViewString: postImageViewString, descriptionText: descriptionText, likesCount: likesCount, viewsCount: viewsCount)
 
             let rootController = topMostController()
-            viewsCount += 1
+
             rootController.present(vc, animated: true, completion: nil)
 
             }
+
+        @objc func likesTapped(_ sender: UITapGestureRecognizer) {
+
+            self.likesCount += 1
+            self.likesView.text = "  Likes: " + String(self.likesCount)
+            }
+
+
+
+
     }
 
 

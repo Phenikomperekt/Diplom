@@ -37,6 +37,8 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
         self.setupView()
 
         self.fetchArticles { [weak self] articles in
@@ -44,6 +46,19 @@ class ProfileViewController: UIViewController {
             self?.tableView.reloadData()
         }
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
+
+    }
+
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.tabBarController?.tabBar.isHidden = true
+//    }
 
     private func setupView() {
         
@@ -57,6 +72,8 @@ class ProfileViewController: UIViewController {
                                 topConstraint, leadingConstraint, trailingConstraint, bottomConstraint
                                     ])
     }
+
+
 
 //MARK: - Date receeved.
     private func fetchArticles(completion: @escaping([News.Article]) -> Void) {
@@ -136,6 +153,41 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+//            object.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+        }
+    }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        let title = NSLocalizedString("Delete", comment: "Delete")
+
+        let action = UIContextualAction(style: .normal, title: title, handler: {
+             (action, view, completionHadler) in
+
+//            self.deleteCellBySwipe(indexPath: indexPath)
+            completionHadler(true)
+        })
+
+        action.image = UIImage(systemName: "delete.backward.fill")
+        action.backgroundColor = .systemRed
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+
+        return configuration
+    }
+
+//    private func deleteCellBySwipe(indexPath: IndexPath) {
+//        tableView.deleteRows(at: [indexPath], with: .fade)
+//        self.tableView.reloadData()
+//        print ("Swipe Left")
+//    }
 
 }
 
